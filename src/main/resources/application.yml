@@ -1,0 +1,6 @@
+activemq:
+    broker-url: vm://embedded?broker.persistent=false,useShutdownHook=false
+
+destination:
+    queueName: QueueSampleName
+    topicName: TopicSampleName
