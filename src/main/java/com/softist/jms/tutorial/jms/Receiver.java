@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class Receiver {
 
-    @JmsListener(destination = "${destination.queueName}")
+    @JmsListener(destination = "myQueue")
     public void receiveQueueMessage(Email email) {
         System.out.println("QUEUE <" + email + ">");
     }
 
-    @JmsListener(destination = "${destination.topicName}")
-    public void receiveTopicMessage(Email email) {
+    @JmsListener(destination = "myTopic", containerFactory = "topicJmsListenerContainerFactory")
+    public void receiveTopicMessage(String email) {
         System.out.println("TOPIC <" + email + ">");
     }
 
